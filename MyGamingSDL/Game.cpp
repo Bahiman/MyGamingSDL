@@ -1,4 +1,9 @@
 #include"Game.h"
+#include <SDL2/SDL_image.h>
+
+SDL_Texture* playerTex;
+SDL_Rect srcR, destR;
+
 
 Game::Game()
 {
@@ -40,12 +45,24 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	else {
 		isRunning = false;
 	}
+
+	SDL_Surface* tmpsSurface = IMG_Load("C:\\Users\\bahge\\source\\repos\\MyGamingSDL\\MyGamingSDL\\Untitled.png");
+
+	playerTex = SDL_CreateTextureFromSurface(renderer, tmpsSurface);
+
+
+
 }
 
 void Game::update()
 {
 	cnt++;
-	printf("%d", cnt);
+
+	destR.h = 64;
+
+	destR.w = 64;
+
+	destR.x = cnt;
 
 }
 
@@ -55,9 +72,9 @@ void Game::render()
 
 	// Add things to render
 
+	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
+
 	SDL_RenderPresent(renderer);
-
-
 
 }
 

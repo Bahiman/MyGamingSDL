@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include"SDL2/sdl.h"
+#include"SDL.h"
 
 class Game {
 public:
@@ -18,13 +18,13 @@ public:
 	void handleEvents();
 
 private:
-	bool isRunning;
+	bool isRunning = true;
 
-	SDL_Window* window;
+	SDL_Window* window = nullptr;
 
-	SDL_Renderer* renderer;
+	SDL_Renderer* renderer = nullptr;
 
-	unsigned int cnt;
+	unsigned int cnt = 0;
 
 };
 
