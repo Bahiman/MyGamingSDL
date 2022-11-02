@@ -4,7 +4,7 @@ Game* game = nullptr;
 
 int main(int argc, char*argv[]) {
 
-	const int FPS = 60;
+	const int FPS = 60; // THE FPS
 	const int frameDelay = 1000 / FPS;
 
 	Uint32 frameStart = 0;
@@ -27,6 +27,7 @@ int main(int argc, char*argv[]) {
 		
 		if (frameDelay > frame_time) {
 			SDL_Delay(frameDelay - frame_time);
+
 		}
 	}
 
